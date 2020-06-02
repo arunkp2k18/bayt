@@ -11,8 +11,8 @@ class BaytSpiderSpider(scrapy.Spider):
         for jobs in response.css('li.has-pointer-d'):
             job = jobs.css('.t-regular a::text').extract_first()
             items['job_name'] = job.strip()
-            company = jobs.css('.p10r::text').extract_first()
-            items['company'] = company.strip()
+            Company = jobs.css('.p10r::text').extract_first()
+            items['company'] = Company.strip()
             date = jobs.css('div.t-small::text').extract()[1]
             items['Date'] = date.strip()
             yield items
